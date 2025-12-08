@@ -1,4 +1,5 @@
 import { ExternalLink, Github, Folder } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const projects = [
   {
@@ -37,31 +38,36 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const { ref, isVisible } = useScrollAnimation(0.05);
+
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-heading">Featured Projects</h2>
+        <h2 className="section-heading animate-fade-in-up">Featured Projects</h2>
 
-        <div className="grid gap-6">
+        <div 
+          ref={ref as React.RefObject<HTMLDivElement>}
+          className="grid gap-6"
+        >
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="group bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300 card-hover"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`group bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-500 hover-lift scroll-hidden-scale ${isVisible ? 'scroll-visible' : ''}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex items-start justify-between mb-4">
-                <Folder className="text-primary" size={40} />
+                <Folder className="text-primary group-hover:scale-110 transition-transform duration-300" size={40} />
                 <div className="flex items-center gap-3">
                   <a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125"
                     aria-label="GitHub"
                   >
                     <Github size={20} />
                   </a>
                   <a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125"
                     aria-label="External Link"
                   >
                     <ExternalLink size={20} />
@@ -69,7 +75,7 @@ const ProjectsSection = () => {
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                 {project.title}
               </h3>
 
@@ -78,10 +84,11 @@ const ProjectsSection = () => {
               </p>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                {project.highlights.map((highlight) => (
+                {project.highlights.map((highlight, i) => (
                   <span
                     key={highlight}
-                    className="text-xs text-primary bg-primary/10 px-2 py-1 rounded"
+                    className="text-xs text-primary bg-primary/10 px-2 py-1 rounded hover:bg-primary/20 transition-colors duration-300"
+                    style={{ animationDelay: `${i * 100}ms` }}
                   >
                     {highlight}
                   </span>
@@ -90,7 +97,7 @@ const ProjectsSection = () => {
 
               <div className="flex flex-wrap gap-3 text-sm font-mono text-muted-foreground">
                 {project.tech.map((t) => (
-                  <span key={t}>{t}</span>
+                  <span key={t} className="hover:text-primary transition-colors duration-300">{t}</span>
                 ))}
               </div>
             </div>
