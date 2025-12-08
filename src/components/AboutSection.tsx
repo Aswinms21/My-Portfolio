@@ -1,4 +1,9 @@
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
 const AboutSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
+  const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation(0.2);
+  
   const technologies = [
     'JavaScript (ES6+)',
     'TypeScript',
@@ -13,10 +18,18 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-heading">About Me</h2>
+        <h2 
+          ref={sectionRef as React.RefObject<HTMLHeadingElement>}
+          className={`section-heading scroll-hidden ${isVisible ? 'scroll-visible' : ''}`}
+        >
+          About Me
+        </h2>
         
         <div className="grid md:grid-cols-3 gap-12">
-          <div className="md:col-span-2 space-y-4 text-muted-foreground">
+          <div 
+            className={`md:col-span-2 space-y-4 text-muted-foreground scroll-hidden-left ${isVisible ? 'scroll-visible' : ''}`}
+            style={{ transitionDelay: '200ms' }}
+          >
             <p>
               Hello! I'm Aswin, a software engineer based in Bengaluru with a passion for building 
               web applications that deliver exceptional user experiences. My journey in tech started 
@@ -35,9 +48,9 @@ const AboutSection = () => {
             </p>
             <p>Here are a few technologies I've been working with recently:</p>
             
-            <ul className="grid grid-cols-2 gap-2 mt-4">
+            <ul className={`grid grid-cols-2 gap-2 mt-4 stagger-children ${isVisible ? 'scroll-visible' : ''}`}>
               {technologies.map((tech) => (
-                <li key={tech} className="flex items-center gap-2 text-sm">
+                <li key={tech} className="flex items-center gap-2 text-sm hover:text-primary transition-colors duration-300">
                   <span className="text-primary">▹</span>
                   {tech}
                 </li>
@@ -45,14 +58,18 @@ const AboutSection = () => {
             </ul>
           </div>
           
-          <div className="relative group">
-            <div className="relative w-full aspect-square rounded-lg overflow-hidden">
-              <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-300 z-10 rounded-lg"></div>
+          <div 
+            ref={imageRef as React.RefObject<HTMLDivElement>}
+            className={`relative group scroll-hidden-right ${imageVisible ? 'scroll-visible' : ''}`}
+            style={{ transitionDelay: '400ms' }}
+          >
+            <div className="relative w-full aspect-square rounded-lg overflow-hidden hover-lift">
+              <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-500 z-10 rounded-lg"></div>
               <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary flex items-center justify-center">
-                <span className="text-6xl font-bold text-primary/50 font-mono">AM</span>
+                <span className="text-6xl font-bold text-primary/50 font-mono group-hover:scale-110 transition-transform duration-500">AM</span>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300"></div>
+            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
           </div>
         </div>
       </div>
