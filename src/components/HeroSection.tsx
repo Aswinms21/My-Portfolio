@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import TypingAnimation from './TypingAnimation';
 
 const HeroSection = () => {
+  const [nameComplete, setNameComplete] = useState(false);
   return (
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 pb-12 relative overflow-hidden">
       {/* Animated gradient background */}
@@ -53,10 +56,21 @@ const HeroSection = () => {
           Hi, my name is
         </p>
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-          Aswin M S.
+          <TypingAnimation 
+            text="Aswin M S." 
+            delay={800} 
+            speed={100}
+            onComplete={() => setNameComplete(true)}
+          />
         </h1>
-        <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-muted-foreground mb-6 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-          I build things for the web.
+        <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-muted-foreground mb-6 min-h-[1.5em] animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+          {nameComplete && (
+            <TypingAnimation 
+              text="I build things for the web." 
+              delay={200} 
+              speed={60}
+            />
+          )}
         </h2>
         <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '600ms' }}>
           Results-driven Software Engineer specializing in full-stack development. 
