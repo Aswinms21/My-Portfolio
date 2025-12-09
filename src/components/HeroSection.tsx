@@ -56,7 +56,8 @@ const HeroSection = () => {
           Aswin M S.
         </h1>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-muted-foreground mb-6 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-          I build things for the web.
+          <span className="typing-text">I build things for the web.</span>
+          <span className="typing-cursor">|</span>
         </h2>
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '600ms' }}>
           Results-driven Software Engineer specializing in full-stack development. 
