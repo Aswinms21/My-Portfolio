@@ -63,13 +63,13 @@ const AboutSection = () => {
             className={`relative group scroll-hidden-right ${imageVisible ? 'scroll-visible' : ''}`}
             style={{ transitionDelay: '400ms' }}
           >
-            <div className="relative w-full aspect-square rounded-lg overflow-hidden hover-lift">
+            <div className="relative w-full max-w-[200px] md:max-w-none aspect-square rounded-lg overflow-hidden hover-lift mx-auto">
               <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-all duration-500 z-10 rounded-lg"></div>
               <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary flex items-center justify-center">
-                <span className="text-6xl font-bold text-primary/50 font-mono group-hover:scale-110 transition-transform duration-500">AM</span>
+                <span className="text-4xl md:text-6xl font-bold text-primary/50 font-mono group-hover:scale-110 transition-transform duration-500">AM</span>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-primary rounded-lg -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+            <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 w-full max-w-[200px] md:max-w-none aspect-square border-2 border-primary rounded-lg -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0"></div>
           </div>
         </div>
       </div>
