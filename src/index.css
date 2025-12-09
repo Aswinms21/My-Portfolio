@@ -232,7 +232,7 @@
   transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.scroll-visible {
+.scroll-hidden.scroll-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -243,16 +243,31 @@
   transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.scroll-hidden-left.scroll-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .scroll-hidden-right {
   opacity: 0;
   transform: translateX(30px);
   transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.scroll-hidden-right.scroll-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .scroll-hidden-scale {
   opacity: 0;
   transform: scale(0.95);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-hidden-scale.scroll-visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Stagger children animations */
