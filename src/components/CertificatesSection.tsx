@@ -1,4 +1,11 @@
+import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import reactCertificate from '@/assets/certificates/react-certificate.jpg';
 import gitCertificate from '@/assets/certificates/git-certificate.jpg';
 import cloudCertificate from '@/assets/certificates/cloud-computing-certificate.jpg';
@@ -29,6 +36,7 @@ const certificates = [
 
 const CertificatesSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.05);
+  const [selectedCert, setSelectedCert] = useState<typeof certificates[0] | null>(null);
 
   return (
     <section id="certificates" className="py-24 px-6">
@@ -42,7 +50,8 @@ const CertificatesSection = () => {
           {certificates.map((cert, index) => (
             <div
               key={cert.id}
-              className={`group bg-card rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all duration-500 hover-lift scroll-hidden-scale ${
+              onClick={() => setSelectedCert(cert)}
+              className={`group bg-card rounded-lg overflow-hidden border border-border hover:border-primary/50 transition-all duration-500 hover-lift scroll-hidden-scale cursor-pointer ${
                 isVisible ? 'scroll-visible' : ''
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
@@ -65,6 +74,28 @@ const CertificatesSection = () => {
           ))}
         </div>
       </div>
+
+      <Dialog open={!!selectedCert} onOpenChange={() => setSelectedCert(null)}>
+        <DialogContent className="max-w-4xl w-[95vw] p-2 bg-background/95 backdrop-blur-sm">
+          <VisuallyHidden>
+            <DialogTitle>{selectedCert?.title} Certificate</DialogTitle>
+          </VisuallyHidden>
+          {selectedCert && (
+            <div className="relative">
+              <img
+                src={selectedCert.image}
+                alt={`${selectedCert.title} Certificate`}
+                className="w-full h-auto rounded-lg"
+              />
+              <div className="mt-3 text-center">
+                <h3 className="text-lg font-semibold text-foreground">{selectedCert.title}</h3>
+                <p className="text-sm text-primary">{selectedCert.issuer}</p>
+                <p className="text-xs text-muted-foreground">{selectedCert.date}</p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
