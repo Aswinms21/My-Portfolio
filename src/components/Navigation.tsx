@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -13,9 +14,11 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    // Trigger entrance animation
+    setMounted(true);
     setVisible(true);
     
     const handleScroll = () => {
@@ -24,6 +27,10 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
 
   return (
     <>
@@ -59,6 +66,18 @@ const Navigation = () => {
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
+              <button
+                onClick={toggleTheme}
+                className="p-2 text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110"
+                aria-label="Toggle theme"
+                style={{ 
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? 'translateY(0)' : 'translateY(-10px)',
+                  transition: `all 0.3s ease-out ${navLinks.length * 100}ms`
+                }}
+              >
+                {mounted && (theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />)}
+              </button>
               <a
                 href="/resume_aswin.pdf"
                 target="_blank"
@@ -67,7 +86,7 @@ const Navigation = () => {
                 style={{ 
                   opacity: visible ? 1 : 0,
                   transform: visible ? 'translateY(0)' : 'translateY(-10px)',
-                  transition: `all 0.3s ease-out ${navLinks.length * 100}ms`
+                  transition: `all 0.3s ease-out ${(navLinks.length + 1) * 100}ms`
                 }}
               >
                 Resume
@@ -75,15 +94,24 @@ const Navigation = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-foreground p-2 hover:text-primary transition-colors duration-300 z-50 relative"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </div>
-            </button>
+            <div className="flex md:hidden items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="text-foreground p-2 hover:text-primary transition-colors duration-300"
+                aria-label="Toggle theme"
+              >
+                {mounted && (theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />)}
+              </button>
+              <button
+                className="text-foreground p-2 hover:text-primary transition-colors duration-300 z-50 relative"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle menu"
+              >
+                <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
