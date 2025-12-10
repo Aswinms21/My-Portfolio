@@ -1,54 +1,90 @@
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ContactSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
     <section id="contact" className="py-24 px-6">
-      <div 
+      <div
         ref={ref as React.RefObject<HTMLDivElement>}
         className="max-w-2xl mx-auto text-center"
       >
-        <p className={`text-primary font-mono mb-4 scroll-hidden ${isVisible ? 'scroll-visible' : ''}`}>
-          04. What's Next?
+        <p
+          className={`text-primary font-mono mb-4 scroll-hidden ${
+            isVisible ? "scroll-visible" : ""
+          }`}
+        >
+          What's Next?
         </p>
-        <h2 className={`text-4xl md:text-5xl font-bold text-foreground mb-6 scroll-hidden ${isVisible ? 'scroll-visible' : ''}`} style={{ transitionDelay: '100ms' }}>
+        <h2
+          className={`text-4xl md:text-5xl font-bold text-foreground mb-6 scroll-hidden ${
+            isVisible ? "scroll-visible" : ""
+          }`}
+          style={{ transitionDelay: "100ms" }}
+        >
           Get In Touch
         </h2>
-        <p className={`text-muted-foreground text-lg mb-12 leading-relaxed scroll-hidden ${isVisible ? 'scroll-visible' : ''}`} style={{ transitionDelay: '200ms' }}>
-          I'm currently looking for new opportunities and my inbox is always open. 
-          Whether you have a question or just want to say hi, I'll try my best to get back to you!
+        <p
+          className={`text-muted-foreground text-lg mb-12 leading-relaxed scroll-hidden ${
+            isVisible ? "scroll-visible" : ""
+          }`}
+          style={{ transitionDelay: "200ms" }}
+        >
+          I'm currently looking for new opportunities and my inbox is always
+          open. Whether you have a question or just want to say hi, I'll try my
+          best to get back to you!
         </p>
 
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 scroll-hidden ${isVisible ? 'scroll-visible' : ''}`} style={{ transitionDelay: '300ms' }}>
+        <div
+          className={`flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 scroll-hidden ${
+            isVisible ? "scroll-visible" : ""
+          }`}
+          style={{ transitionDelay: "300ms" }}
+        >
           <a
             href="mailto:achums2121@gmail.com"
             className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 group"
           >
-            <Mail size={20} className="text-primary group-hover:animate-pulse" />
+            <Mail
+              size={20}
+              className="text-primary group-hover:animate-pulse"
+            />
             achums2121@gmail.com
           </a>
           <a
             href="tel:+918138095803"
             className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 group"
           >
-            <Phone size={20} className="text-primary group-hover:animate-pulse" />
+            <Phone
+              size={20}
+              className="text-primary group-hover:animate-pulse"
+            />
             +91 8138095803
           </a>
         </div>
 
-        <div className={`flex items-center justify-center gap-2 text-muted-foreground mb-12 scroll-hidden ${isVisible ? 'scroll-visible' : ''}`} style={{ transitionDelay: '400ms' }}>
+        <div
+          className={`flex items-center justify-center gap-2 text-muted-foreground mb-12 scroll-hidden ${
+            isVisible ? "scroll-visible" : ""
+          }`}
+          style={{ transitionDelay: "400ms" }}
+        >
           <MapPin size={20} className="text-primary" />
           <span>Bengaluru, Karnataka, India</span>
         </div>
 
         <a
           href="mailto:achums2121@gmail.com"
-          className={`inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-lg font-medium text-lg hover:bg-primary/10 transition-all duration-300 group magnetic-btn scroll-hidden-scale ${isVisible ? 'scroll-visible' : ''}`}
-          style={{ transitionDelay: '500ms' }}
+          className={`inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-lg font-medium text-lg hover:bg-primary/10 transition-all duration-300 group magnetic-btn scroll-hidden-scale ${
+            isVisible ? "scroll-visible" : ""
+          }`}
+          style={{ transitionDelay: "500ms" }}
         >
-          <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+          <Send
+            size={20}
+            className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+          />
           Say Hello
         </a>
       </div>

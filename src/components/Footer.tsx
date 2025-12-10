@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/aswinms"
+              href="https://github.com/Aswinms21"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -16,7 +16,7 @@ const Footer = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/aswinms"
+              href="http://www.linkedin.com/in/aswin-ms-5a9615220/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -32,10 +32,9 @@ const Footer = () => {
               <Mail size={20} />
             </a>
           </div>
-          
+
           <p className="text-muted-foreground text-sm font-mono">
-            Designed & Built by{' '}
-            <span className="text-primary">Aswin M S</span>
+            Designed & Built by <span className="text-primary">Aswin M S</span>
           </p>
         </div>
       </div>

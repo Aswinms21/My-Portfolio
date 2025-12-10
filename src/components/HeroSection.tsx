@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import TypingAnimation from './TypingAnimation';
+import { useState } from "react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import TypingAnimation from "./TypingAnimation";
 
 const HeroSection = () => {
   const [nameComplete, setNameComplete] = useState(false);
@@ -43,42 +43,57 @@ const HeroSection = () => {
       </div>
 
       {/* Grid overlay */}
-      <div 
+      <div
         className="absolute inset-0 -z-10 opacity-[0.02]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
+          backgroundSize: "50px 50px",
         }}
       />
 
       <div className="max-w-4xl relative z-10 w-full">
-        <p className="text-primary font-mono text-sm sm:text-base mb-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+        <p
+          className="text-primary font-mono text-sm sm:text-base mb-4 animate-fade-in-up"
+          style={{ animationDelay: "300ms" }}
+        >
           Hi, my name is
         </p>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-          <TypingAnimation 
-            text="Aswin M S." 
-            delay={800} 
+        <h1
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 animate-fade-in-up"
+          style={{ animationDelay: "400ms" }}
+        >
+          <TypingAnimation
+            text="Aswin M S."
+            delay={800}
             speed={100}
             onComplete={() => setNameComplete(true)}
           />
         </h1>
-        <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-muted-foreground mb-6 min-h-[1.5em] animate-fade-in-up" style={{ animationDelay: '500ms' }}>
+        <h2
+          className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-muted-foreground mb-6 min-h-[1.5em] animate-fade-in-up"
+          style={{ animationDelay: "500ms" }}
+        >
           {nameComplete && (
-            <TypingAnimation 
-              text="I build things for the web." 
-              delay={200} 
+            <TypingAnimation
+              text="I build things for the web."
+              delay={200}
               speed={60}
             />
           )}
         </h2>
-        <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-          Results-driven Software Engineer specializing in full-stack development. 
-          I design and build production-grade web applications with a focus on automation, 
-          scalability, and user-centered design.
+        <p
+          className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mb-8 leading-relaxed animate-fade-in-up"
+          style={{ animationDelay: "600ms" }}
+        >
+          Results-driven Software Engineer specializing in full-stack
+          development. I design and build production-grade web applications with
+          a focus on automation, scalability, and user-centered design.
         </p>
 
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground mb-8 animate-fade-in-up" style={{ animationDelay: '700ms' }}>
+        <div
+          className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground mb-8 animate-fade-in-up"
+          style={{ animationDelay: "700ms" }}
+        >
           <span className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
             <MapPin size={14} className="text-primary flex-shrink-0" />
             <span>Bengaluru, Karnataka</span>
@@ -89,7 +104,10 @@ const HeroSection = () => {
           </span>
         </div>
 
-        <div className="flex items-center gap-4 sm:gap-6 animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+        <div
+          className="flex items-center gap-4 sm:gap-6 animate-fade-in-up"
+          style={{ animationDelay: "800ms" }}
+        >
           <a
             href="mailto:achums2121@gmail.com"
             className="p-2.5 sm:p-3 border border-border rounded-lg text-muted-foreground hover:text-primary hover:border-primary hover:scale-110 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm bg-background/30"
@@ -98,7 +116,7 @@ const HeroSection = () => {
             <Mail size={20} className="sm:w-[22px] sm:h-[22px]" />
           </a>
           <a
-            href="https://github.com/aswinms"
+            href="https://github.com/Aswinms21"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 sm:p-3 border border-border rounded-lg text-muted-foreground hover:text-primary hover:border-primary hover:scale-110 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm bg-background/30"
@@ -107,7 +125,7 @@ const HeroSection = () => {
             <Github size={20} className="sm:w-[22px] sm:h-[22px]" />
           </a>
           <a
-            href="https://linkedin.com/in/aswinms"
+            href="http://www.linkedin.com/in/aswin-ms-5a9615220/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2.5 sm:p-3 border border-border rounded-lg text-muted-foreground hover:text-primary hover:border-primary hover:scale-110 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm bg-background/30"
@@ -117,7 +135,10 @@ const HeroSection = () => {
           </a>
         </div>
 
-        <div className="mt-12 animate-fade-in-up" style={{ animationDelay: '900ms' }}>
+        <div
+          className="mt-12 animate-fade-in-up"
+          style={{ animationDelay: "900ms" }}
+        >
           <a
             href="#contact"
             className="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary/10 hover:scale-105 transition-all duration-300 magnetic-btn backdrop-blur-sm"

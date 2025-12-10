@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 interface TypingAnimationProps {
   text: string;
@@ -8,8 +8,14 @@ interface TypingAnimationProps {
   onComplete?: () => void;
 }
 
-const TypingAnimation = ({ text, className = '', delay = 0, speed = 80, onComplete }: TypingAnimationProps) => {
-  const [displayedText, setDisplayedText] = useState('');
+const TypingAnimation = ({
+  text,
+  className = "",
+  delay = 0,
+  speed = 80,
+  onComplete,
+}: TypingAnimationProps) => {
+  const [displayedText, setDisplayedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [isTyping, setIsTyping] = useState(false);
 
@@ -36,7 +42,7 @@ const TypingAnimation = ({ text, className = '', delay = 0, speed = 80, onComple
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowCursor((prev) => !prev);
     }, 530);
     return () => clearInterval(cursorInterval);
   }, []);
@@ -44,9 +50,9 @@ const TypingAnimation = ({ text, className = '', delay = 0, speed = 80, onComple
   return (
     <span className={className}>
       {displayedText}
-      <span 
+      <span
         className="text-primary ml-0.5 font-light"
-        style={{ opacity: showCursor ? 1 : 0 }}
+        style={{ opacity: showCursor ? 0 : 0 }}
       >
         |
       </span>
