@@ -96,7 +96,7 @@ const HeroSection = () => {
         >
           <span className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
             <MapPin size={14} className="text-primary flex-shrink-0" />
-            <span>Bengaluru, Karnataka</span>
+            <span>Thrissur, Kerala, India</span>
           </span>
           <span className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
             <Phone size={14} className="text-primary flex-shrink-0" />

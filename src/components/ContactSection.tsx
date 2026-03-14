@@ -11,24 +11,21 @@ const ContactSection = () => {
         className="max-w-2xl mx-auto text-center"
       >
         <p
-          className={`text-primary font-mono mb-4 scroll-hidden ${
-            isVisible ? "scroll-visible" : ""
-          }`}
+          className={`text-primary font-mono mb-4 scroll-hidden ${isVisible ? "scroll-visible" : ""
+            }`}
         >
           What's Next?
         </p>
         <h2
-          className={`text-4xl md:text-5xl font-bold text-foreground mb-6 scroll-hidden ${
-            isVisible ? "scroll-visible" : ""
-          }`}
+          className={`text-4xl md:text-5xl font-bold text-foreground mb-6 scroll-hidden ${isVisible ? "scroll-visible" : ""
+            }`}
           style={{ transitionDelay: "100ms" }}
         >
           Get In Touch
         </h2>
         <p
-          className={`text-muted-foreground text-lg mb-12 leading-relaxed scroll-hidden ${
-            isVisible ? "scroll-visible" : ""
-          }`}
+          className={`text-muted-foreground text-lg mb-12 leading-relaxed scroll-hidden ${isVisible ? "scroll-visible" : ""
+            }`}
           style={{ transitionDelay: "200ms" }}
         >
           I'm currently looking for new opportunities and my inbox is always
@@ -37,9 +34,8 @@ const ContactSection = () => {
         </p>
 
         <div
-          className={`flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 scroll-hidden ${
-            isVisible ? "scroll-visible" : ""
-          }`}
+          className={`flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 scroll-hidden ${isVisible ? "scroll-visible" : ""
+            }`}
           style={{ transitionDelay: "300ms" }}
         >
           <a
@@ -65,20 +61,18 @@ const ContactSection = () => {
         </div>
 
         <div
-          className={`flex items-center justify-center gap-2 text-muted-foreground mb-12 scroll-hidden ${
-            isVisible ? "scroll-visible" : ""
-          }`}
+          className={`flex items-center justify-center gap-2 text-muted-foreground mb-12 scroll-hidden ${isVisible ? "scroll-visible" : ""
+            }`}
           style={{ transitionDelay: "400ms" }}
         >
           <MapPin size={20} className="text-primary" />
-          <span>Bengaluru, Karnataka, India</span>
+          <span>Thrissur, Kerala, India</span>
         </div>
 
         <a
           href="mailto:achums2121@gmail.com"
-          className={`inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-lg font-medium text-lg hover:bg-primary/10 transition-all duration-300 group magnetic-btn scroll-hidden-scale ${
-            isVisible ? "scroll-visible" : ""
-          }`}
+          className={`inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-lg font-medium text-lg hover:bg-primary/10 transition-all duration-300 group magnetic-btn scroll-hidden-scale ${isVisible ? "scroll-visible" : ""
+            }`}
           style={{ transitionDelay: "500ms" }}
         >
           <Send

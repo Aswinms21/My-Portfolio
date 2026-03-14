@@ -5,13 +5,13 @@ const AboutSection = () => {
   const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation(0.2);
 
   const technologies = [
-    "JavaScript (ES6+)",
+    "JavaScript",
     "TypeScript",
     "React",
     "Next.js",
     "Node.js",
     "Python",
-    "MongoDB",
+    "Docker",
     "PostgreSQL",
   ];
 
@@ -20,30 +20,28 @@ const AboutSection = () => {
       <div className="max-w-4xl mx-auto">
         <h2
           ref={sectionRef as React.RefObject<HTMLHeadingElement>}
-          className={`section-heading scroll-hidden ${
-            isVisible ? "scroll-visible" : ""
-          }`}
+          className={`section-heading scroll-hidden ${isVisible ? "scroll-visible" : ""
+            }`}
         >
           About Me
         </h2>
 
         <div className="grid md:grid-cols-3 gap-12">
           <div
-            className={`md:col-span-2 space-y-4 text-muted-foreground scroll-hidden-left ${
-              isVisible ? "scroll-visible" : ""
-            }`}
+            className={`md:col-span-2 space-y-4 text-muted-foreground scroll-hidden-left ${isVisible ? "scroll-visible" : ""
+              }`}
             style={{ transitionDelay: "200ms" }}
           >
             <p>
-              Hello! I'm Aswin, a aspiring software engineer based in Bengaluru
-              with a passion for building web applications that deliver
+              Hello! I'm Aswin, a aspiring software engineer based in Thrissur,
+              Kerala with a passion for building web applications that deliver
               exceptional user experiences. My journey in tech started during my
               BCA at Nirmala College, and I've been hooked on coding ever since.
             </p>
             <p>
               I had the opportunity to work at{" "}
               <span className="text-primary">Tata Consultancy Services</span> as
-              a Technical Support Engineer, where I gained valuable experience
+              a Graduate Trainee, where I gained valuable experience
               in analyzing business requirements and coordinating with
               cross-functional teams to deliver solutions.
             </p>
@@ -55,9 +53,8 @@ const AboutSection = () => {
             <p>Here are a few technologies I've been working with recently:</p>
 
             <ul
-              className={`grid grid-cols-2 gap-2 mt-4 stagger-children ${
-                isVisible ? "scroll-visible" : ""
-              }`}
+              className={`grid grid-cols-2 gap-2 mt-4 stagger-children ${isVisible ? "scroll-visible" : ""
+                }`}
             >
               {technologies.map((tech) => (
                 <li
@@ -73,9 +70,8 @@ const AboutSection = () => {
 
           <div
             ref={imageRef as React.RefObject<HTMLDivElement>}
-            className={`relative group scroll-hidden-right ${
-              imageVisible ? "scroll-visible" : ""
-            } flex justify-center md:block`}
+            className={`relative group scroll-hidden-right ${imageVisible ? "scroll-visible" : ""
+              } flex justify-center md:block`}
             style={{ transitionDelay: "400ms" }}
           >
             <div className="relative">

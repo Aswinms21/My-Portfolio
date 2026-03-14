@@ -8,10 +8,10 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24 px-6 bg-card/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-heading animate-fade-in-up">Experience & Education</h2>
+        <h2 className="section-heading animate-fade-in-up">Experience &amp; Education</h2>
 
         {/* Work Experience */}
-        <div 
+        <div
           ref={workRef as React.RefObject<HTMLDivElement>}
           className={`mb-16 scroll-hidden ${workVisible ? 'scroll-visible' : ''}`}
         >
@@ -21,20 +21,58 @@ const ExperienceSection = () => {
           </div>
 
           <div className="relative border-l-2 border-border pl-8 ml-3">
+            {/* Timeline dot – most recent entry */}
             <div className={`absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0 ${workVisible ? 'animate-pulse-glow' : ''}`}></div>
-            
-            <div 
+
+            {/* Cargo Matters – most recent */}
+            <div
               className={`pb-8 scroll-hidden-left ${workVisible ? 'scroll-visible' : ''}`}
               style={{ transitionDelay: '200ms' }}
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                 <h4 className="text-lg font-semibold text-foreground">
-                  Technical Support Engineer
+                  Full Stack Developer (Internship)
+                </h4>
+                <span className="text-primary font-mono text-sm">Nov 2025 – Feb 2026</span>
+              </div>
+              <p className="text-primary mb-4">Cargo Matters · Remote</p>
+
+              <ul className={`space-y-3 text-muted-foreground stagger-children ${workVisible ? 'scroll-visible' : ''}`}>
+                <li className="flex gap-3 hover:translate-x-2 transition-transform duration-300">
+                  <span className="text-primary mt-1.5">▹</span>
+                  <span>Architected 2+ full-stack applications using React, Next.js, and Node.js with 100% mobile compatibility across 8+ device breakpoints</span>
+                </li>
+                <li className="flex gap-3 hover:translate-x-2 transition-transform duration-300">
+                  <span className="text-primary mt-1.5">▹</span>
+                  <span>Engineered RESTful APIs processing 500+ daily transactions with 99% uptime, achieving 40% faster response times through performance optimization</span>
+                </li>
+                <li className="flex gap-3 hover:translate-x-2 transition-transform duration-300">
+                  <span className="text-primary mt-1.5">▹</span>
+                  <span>Designed 12+ normalized RDBMS schemas with indexing strategies, improving SQL query performance by 45% on datasets</span>
+                </li>
+                <li className="flex gap-3 hover:translate-x-2 transition-transform duration-300">
+                  <span className="text-primary mt-1.5">▹</span>
+                  <span>Integrated payment gateways, OAuth 2.0 authentication, and third-party APIs; optimized bundle size by 45% through code splitting and lazy loading</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Timeline dot – TCS entry */}
+            <div className={`absolute w-4 h-4 bg-secondary border-2 border-primary rounded-full -left-[9px] top-[260px] ${workVisible ? 'animate-pulse-glow' : ''}`}></div>
+
+            {/* TCS */}
+            <div
+              className={`pb-8 scroll-hidden-left ${workVisible ? 'scroll-visible' : ''}`}
+              style={{ transitionDelay: '400ms' }}
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                <h4 className="text-lg font-semibold text-foreground">
+                  Process Executive
                 </h4>
                 <span className="text-primary font-mono text-sm">May 2022 – Jun 2023</span>
               </div>
               <p className="text-primary mb-4">Tata Consultancy Services, Chennai</p>
-              
+
               <ul className={`space-y-3 text-muted-foreground stagger-children ${workVisible ? 'scroll-visible' : ''}`}>
                 <li className="flex gap-3 hover:translate-x-2 transition-transform duration-300">
                   <span className="text-primary mt-1.5">▹</span>
@@ -58,7 +96,7 @@ const ExperienceSection = () => {
         </div>
 
         {/* Education */}
-        <div 
+        <div
           ref={eduRef as React.RefObject<HTMLDivElement>}
           className={`scroll-hidden ${eduVisible ? 'scroll-visible' : ''}`}
         >
@@ -69,8 +107,8 @@ const ExperienceSection = () => {
 
           <div className="relative border-l-2 border-border pl-8 ml-3">
             <div className={`absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0 ${eduVisible ? 'animate-pulse-glow' : ''}`}></div>
-            
-            <div 
+
+            <div
               className={`pb-8 scroll-hidden-left ${eduVisible ? 'scroll-visible' : ''}`}
               style={{ transitionDelay: '200ms' }}
             >
@@ -84,8 +122,8 @@ const ExperienceSection = () => {
             </div>
 
             <div className={`absolute w-4 h-4 bg-secondary border-2 border-primary rounded-full -left-[9px] top-[100px] ${eduVisible ? 'animate-pulse-glow' : ''}`}></div>
-            
-            <div 
+
+            <div
               className={`scroll-hidden-left ${eduVisible ? 'scroll-visible' : ''}`}
               style={{ transitionDelay: '400ms' }}
             >
