@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ExternalLink, Github, Folder, X, Code2, Wrench, BookOpen, CheckCircle } from 'lucide-react';
+import { ExternalLink, Github, Folder, X, Code2, Wrench, BookOpen, CheckCircle, Lock } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface Language {
@@ -21,6 +21,7 @@ interface Project {
   videoUrl?: string;
   liveUrl?: string;
   githubUrl?: string;
+  githubPrivate?: boolean;
   summary: string;
   whatWasDone: string[];
   languages: Language[];
@@ -33,6 +34,9 @@ const projects: Project[] = [
     title: 'Advanced Flood Prediction System',
     description:
       'End-to-end automated ML solution for flood risk predictions with 92% accuracy using SVM, Random Forest, LR, GBM, and KNN. Features SMTP-based automated alert system for stakeholder notifications.',
+    image: '/flood-prediction-preview.png',
+    githubUrl: 'https://github.com/Aswinms21/Flood-Prediction-using-different-ML-models.git',
+    githubPrivate: true,
     tech: ['Python', 'Streamlit', 'scikit-learn', 'SMTP'],
     highlights: [
       '92% prediction accuracy',
@@ -65,40 +69,46 @@ const projects: Project[] = [
   {
     title: 'Modern Logistics Website',
     description:
-      'Responsive web application with intuitive navigation and modern interface design. Optimised performance via image compression, code-splitting, and lazy loading.',
-    tech: ['React', 'TypeScript', 'Tailwind CSS'],
+      'Responsive frontend web application with intuitive navigation and modern interface design. Optimised performance via image compression, component-level code-splitting, and Next.js Image optimisation.',
+    videoUrl: '/website preview.mp4',
+    githubUrl: 'https://github.com/Aswinms21/Modern-Logistics-Website.git',
+    githubPrivate: true,
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     highlights: [
       '40% boost in user engagement',
       '30% reduced load times',
       'Cross-device compatibility',
     ],
     summary:
-      'A production-ready logistics company website built with React and TypeScript, optimised for performance and full cross-device compatibility, resulting in measurably improved user engagement.',
+      'A production-ready logistics company website built with Next.js and TypeScript. Focused heavily on high-performance frontend architecture, accessible UI, and full cross-device compatibility, resulting in measurably improved user engagement.',
     whatWasDone: [
-      'Designed and built a fully responsive multi-page website with React, TypeScript, and Tailwind CSS',
-      'Implemented code-splitting and React lazy loading to reduce initial bundle size',
-      'Applied image compression and next-gen formats to cut asset payload by ~30%',
-      'Created accessible, keyboard-navigable UI components following WCAG guidelines',
+      'Engineered a fully responsive multi-page website architecture using Next.js (App Router), TypeScript, and Tailwind CSS',
+      'Leveraged Next.js Image component and dynamic imports to aggressively reduce initial bundle size and payload by ~30%',
+      'Created accessible, keyboard-navigable UI components following WCAG guidelines for inclusive design',
+      'Implemented fluid page transitions and interactive micro-animations to enhance the modern look and feel',
     ],
     languages: [
       { name: 'TypeScript', reason: 'Static typing catches bugs at compile time and improves long-term maintainability' },
       { name: 'JavaScript (JSX/TSX)', reason: "React's component model requires JSX for declarative UI definition" },
     ],
     tools: [
-      { name: 'React', reason: 'Component-based architecture for a reusable, scalable UI' },
+      { name: 'Next.js', reason: 'Provides SSR/SSG capabilities and built-in image optimisation for lightning-fast loads' },
       { name: 'Tailwind CSS', reason: 'Utility-first CSS for rapid, consistent styling without custom CSS bloat' },
-      { name: 'Vite', reason: 'Lightning-fast HMR and optimised production builds' },
+      { name: 'Framer Motion', reason: 'Declarative animations for complex scroll and hover interactions' },
     ],
     learned: [
-      'Performance profiling and optimisation techniques (Lighthouse, bundle analysis)',
-      'Composing accessible, reusable React component libraries from scratch',
-      'Delivering measurable business outcomes (engagement & load time) through technical decisions',
+      'Performance profiling and Next.js optimization techniques (Lighthouse, bundle analysis)',
+      'Composing accessible, reusable UI component libraries tailored for logistics branding',
+      'Delivering measurable business outcomes (engagement & load time) through frontend technical decisions',
     ],
   },
   {
-    title: 'TaskLink – SaaS Task Marketplace',
+    title: 'TaskLink – Task Marketplace',
     description:
       'End-to-end SaaS platform automating task assignment, payment processing, and delivery workflows using OOP principles. Features an escrow-based wallet with Razorpay integration.',
+    videoUrl: '/Tasklink preview.mp4',
+    githubUrl: 'https://github.com/Aswinms21/TaskLink.git',
+    githubPrivate: true,
     tech: ['React', 'Node.js', 'PostgreSQL', 'Supabase', 'Razorpay'],
     highlights: [
       'Escrow-based payment system',
@@ -132,39 +142,43 @@ const projects: Project[] = [
     ],
   },
   {
-    title: 'Digit Marketplace – Templately',
+    title: 'Digital Marketplace – Templately',
     description:
-      'Full-stack multi-vendor marketplace enabling creators to sell digital assets, leveraging RDBMS architecture with complex SQL joins and stored procedures. 30% faster page rendering via optimised Next.js routing.',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'Supabase', 'Resend API'],
+      'Full-stack multi-vendor marketplace enabling creators to sell digital assets, leveraging RDBMS architecture with complex SQL joins and stored procedures to handle relationships efficiently.',
+    videoUrl: '/Templately preview.mp4',
+    githubUrl: 'https://github.com/Aswinms21/Templately.git',
+    githubPrivate: true,
+    liveUrl: 'https://www.templately.shop/',
+    tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Supabase'],
     highlights: [
-      '30% faster page rendering',
-      'OAuth2 + session auth',
-      'Transactional email workflows',
+      'Multi-vendor architecture',
+      'Role-based dashboard',
+      'Optimised REST API',
     ],
     summary:
-      'A multi-vendor digital asset marketplace where creators list and sell templates, UI kits, and other digital products — built with Next.js and a normalised PostgreSQL schema for high-performance data access.',
+      'A multi-vendor digital asset marketplace where creators list and sell templates, UI kits, and other digital products — built with React and a normalised PostgreSQL schema for high-performance data access.',
     whatWasDone: [
-      'Built a full-stack multi-vendor marketplace with Next.js (App Router) and a Node.js API layer, enabling creators to list, manage, and sell digital assets',
+      'Built a full-stack multi-vendor marketplace with React and a Node.js API layer, enabling creators to list, manage, and sell digital assets in a unified storefront',
       'Designed the RDBMS schema with complex SQL joins and stored procedures to handle vendor relationships, product listings, purchases, and royalties efficiently',
-      'Integrated OAuth2 authentication (Google / GitHub) with server-side session management, significantly reducing sign-up friction',
-      'Implemented transactional email workflows with Resend API and SQL-based event tracking for order confirmations, delivery links, and vendor notifications',
-      'Achieved 30% faster page rendering by leveraging Next.js static generation, ISR, and optimised dynamic routing',
+      'Implemented secure JWT-based authentication with role-based access control (RBAC), providing distinct dashboard experiences for buyers, sellers, and admins',
+      'Engineered an optimised RESTful API using Express, processing concurrent product and order workflows with fast response times',
+      'Integrated rich client-side state management to handle complex shopping cart interactions and real-time inventory checks seamlessly',
     ],
     languages: [
-      { name: 'TypeScript', reason: 'Type safety across full-stack Next.js monorepo prevents runtime errors in complex data flows' },
+      { name: 'TypeScript', reason: 'Type safety across full-stack React/Node monorepo prevents runtime errors in complex data flows' },
       { name: 'SQL (PostgreSQL)', reason: 'Complex relational queries (joins, stored procedures) needed for multi-vendor financial data' },
     ],
     tools: [
-      { name: 'Next.js', reason: 'SSR/SSG/ISR capabilities deliver fast initial loads and great SEO for a public marketplace' },
-      { name: 'Supabase', reason: 'Managed Postgres with Row Level Security for per-vendor data isolation' },
-      { name: 'Resend API', reason: 'Developer-friendly transactional email with high deliverability for order notifications' },
-      { name: 'OAuth2 (NextAuth)', reason: 'Delegated authentication reduces friction and eliminates password management' },
+      { name: 'React', reason: 'Component-driven UI ideal for building interactive buyer and seller dashboards' },
+      { name: 'Node.js + Express', reason: 'Non-blocking architecture perfect for handling concurrent API requests across the marketplace' },
+      { name: 'Supabase', reason: 'Managed Postgres with built-in Row Level Security for per-vendor data isolation' },
+      { name: 'Tailwind CSS', reason: 'Utility-first styling for rapid, responsive UI development without context switching' },
     ],
     learned: [
       'Designing normalised RDBMS schemas for multi-tenant/multi-vendor scenarios with proper indexing strategies',
-      'Next.js rendering strategies (SSG vs SSR vs ISR) and when to apply each for optimal performance',
-      'Building reliable transactional email pipelines and handling delivery failures gracefully',
-      'OAuth2 session management security considerations (CSRF, token refresh, revocation)',
+      'Structing scalable REST APIs to minimise over-fetching and under-fetching of product data',
+      'Implementing robust client-side state management for complex cart and checkout workflows',
+      'Securing role-based endpoints and ensuring strict data boundaries between different marketplace vendors',
     ],
   },
 ];
@@ -178,6 +192,15 @@ interface ProjectModalProps {
 
 const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const [showModalPrivatePopup, setShowModalPrivatePopup] = useState(false);
+
+  const handleModalGithubClick = (e: React.MouseEvent) => {
+    if (project.githubPrivate) {
+      e.preventDefault();
+      setShowModalPrivatePopup(true);
+      setTimeout(() => setShowModalPrivatePopup(false), 2800);
+    }
+  };
 
   // Close on Escape key
   useEffect(() => {
@@ -241,17 +264,26 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           <div>
             <div className="flex flex-wrap items-start justify-between gap-3">
               <h2 className="text-xl sm:text-2xl font-bold text-foreground">{project.title}</h2>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 relative">
                 {project.githubUrl && (
                   <a
-                    href={project.githubUrl}
-                    target="_blank"
+                    href={project.githubPrivate ? '#' : project.githubUrl}
+                    target={project.githubPrivate ? undefined : '_blank'}
                     rel="noopener noreferrer"
                     className="p-2 border border-border rounded-lg text-muted-foreground hover:text-primary hover:border-primary hover:scale-110 transition-all duration-300"
-                    aria-label="View on GitHub"
+                    aria-label={project.githubPrivate ? 'Private Repository' : 'View on GitHub'}
+                    onClick={handleModalGithubClick}
                   >
-                    <Github size={18} />
+                    {project.githubPrivate ? <Lock size={18} /> : <Github size={18} />}
                   </a>
+                )}
+                {showModalPrivatePopup && (
+                  <div className="absolute bottom-full left-0 mb-2 z-10 whitespace-nowrap bg-card border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground shadow-lg" style={{ animation: 'fadeInUp 0.2s ease-out' }}>
+                    <span className="flex items-center gap-1.5">
+                      <Lock size={11} className="text-primary flex-shrink-0" />
+                      Repository is private — cannot be viewed
+                    </span>
+                  </div>
                 )}
                 {project.liveUrl && (
                   <a
@@ -367,12 +399,23 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index, isVisible, onClick }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [showPrivatePopup, setShowPrivatePopup] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleGithubClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (project.githubPrivate) {
+      e.preventDefault();
+      setShowPrivatePopup(true);
+      setTimeout(() => setShowPrivatePopup(false), 2800);
+    }
+  };
 
   useEffect(() => {
     if (!videoRef.current) return;
     if (isHovered) {
-      videoRef.current.play().catch(() => {/* autoplay blocked – silent */});
+      videoRef.current.playbackRate = 2.0;
+      videoRef.current.play().catch(() => {/* autoplay blocked – silent */ });
     } else {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
@@ -432,18 +475,26 @@ const ProjectCard = ({ project, index, isVisible, onClick }: ProjectCardProps) =
           <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight pr-2">
             {project.title}
           </h3>
-          <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="flex items-center gap-2 flex-shrink-0 relative">
             {project.githubUrl && (
               <a
-                href={project.githubUrl}
-                target="_blank"
+                href={project.githubPrivate ? '#' : project.githubUrl}
+                target={project.githubPrivate ? undefined : '_blank'}
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-125"
-                aria-label="GitHub Repository"
-                onClick={(e) => e.stopPropagation()}
+                aria-label={project.githubPrivate ? 'Private Repository' : 'GitHub Repository'}
+                onClick={handleGithubClick}
               >
-                <Github size={18} />
+                {project.githubPrivate ? <Lock size={16} /> : <Github size={18} />}
               </a>
+            )}
+            {showPrivatePopup && (
+              <div className="absolute bottom-full right-0 mb-2 z-10 whitespace-nowrap bg-card border border-border rounded-lg px-3 py-2 text-xs text-muted-foreground shadow-lg" style={{ animation: 'fadeInUp 0.2s ease-out' }}>
+                <span className="flex items-center gap-1.5">
+                  <Lock size={11} className="text-primary flex-shrink-0" />
+                  Repository is private — cannot be viewed
+                </span>
+              </div>
             )}
             {project.liveUrl && (
               <a
